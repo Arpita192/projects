@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct Contact {
+    string name;
+    string phone_number;
+};
+Contact contacts[100];
+void addContact(Contact contact) {
+    int i = 0;
+    while (contacts[i].name != "") {
+        i++;
+    }
+    contacts[i] = contact;
+}
+Contact searchContact(string name) {
+    for (int i = 0; i < 100; i++) {
+        if (contacts[i].name == name) {
+            return contacts[i];
+        }
+    }
+    Contact emptyContact;
+    emptyContact.name = "";
+    emptyContact.phone_number = "";
+    return emptyContact;
+}
+void displayPhonebook() {
+    for (int i = 0; i < 100; i++) {
+        if (contacts[i].name != "") {
+            cout << contacts[i].name << ": " << contacts[i].phone_number << endl;
+        }
+    }
+}
+int main() {
+    addContact({"Arpita", "9870654767"});
+    addContact({"Mummy", "9879658964"});
+    Contact contact = searchContact("Arpita");
+    cout << contact.name << ": " << contact.phone_number << endl;
+    displayPhonebook();
+    
+    return 0;
+}
