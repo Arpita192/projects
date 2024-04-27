@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int player1Choice, player2Choice;
+
+  cout << "Player 1, choose rock (0), paper (1), or scissors (2): ";
+  cin >> player1Choice;
+
+  cout << "Player 2, choose rock (0), paper (1), or scissors (2): ";
+  cin >> player2Choice;
+
+  int winner;
+
+  if (player1Choice == player2Choice) {
+    winner = 0; // Tie
+  } else if (player1Choice == 0 && player2Choice == 1) {
+    winner = 2; // Player 2 wins
+  } else if (player1Choice == 0 && player2Choice == 2) {
+    winner = 1; // Player 1 wins
+  } else if (player1Choice == 1 && player2Choice == 0) {
+    winner = 1; // Player 1 wins
+  } else if (player1Choice == 1 && player2Choice == 2) {
+    winner = 2; // Player 2 wins
+  } else if (player1Choice == 2 && player2Choice == 0) {
+    winner = 2; // Player 2 wins
+  } else if (player1Choice == 2 && player2Choice == 1) {
+    winner = 1; // Player 1 wins
+  }
+
+  if (winner == 0) {
+    cout << "Tie!" << endl;
+  } else if (winner == 1) {
+    cout << "Player 1 is a winner!" << endl;
+  } else if (winner == 2) {
+    cout << "Player 2 is a winner!" << endl;
+  }
+
+  return 0;
+}
